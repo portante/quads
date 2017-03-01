@@ -1,6 +1,8 @@
 QUADS (quick and dirty scheduler)
 ====================================
 
+New change
+
 Automate scheduling and end-to-end provisioning of servers and networks.
 
 * Please use our [Gerrit Review](https://review.gerrithub.io/#/q/project:redhat-performance/quads) to submit patches.
