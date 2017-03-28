@@ -12,6 +12,7 @@ import requests
 from subprocess import call
 from subprocess import check_call
 
+
 logger = logging.getLogger('quads')
 ch = logging.StreamHandler(sys.stdout)
 ch.setLevel(logging.INFO)
