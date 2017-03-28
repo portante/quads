@@ -323,6 +323,7 @@ class Quads(object):
     # update a cloud resource
     def quads_update_cloud(self, cloudresource, description, forceupdate, cloudowner, ccusers, cloudticket, qinq):
         # define or update a cloud resource
+
         kwargs = {'cloudresource': cloudresource, 'description': description, 'forceupdate': forceupdate,
                   'cloudowner': cloudowner, 'ccusers': ccusers, 'cloudticket': cloudticket, 'qinq': qinq}
 
