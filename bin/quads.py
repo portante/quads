@@ -12,6 +12,7 @@ import requests
 from subprocess import call
 from subprocess import check_call
 
+sys.path.append(os.path.dirname(__file__) + "/../")
 from lib.hardware_services.hardware_service import set_hardware_service
 
 
