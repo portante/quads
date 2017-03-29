@@ -63,6 +63,12 @@ def main(argv):
     defaultstatedir = quads_config["data_dir"] + "/state"
     defaultmovecommand = "/bin/echo"
 
+    # EC528 addition - sets hardware service
+    defaulthardwareservice = quads_config["hardware_service"]
+
+    # added for EC528 HIL-QUADS integration project - not a good place for this variable - should be moved eventually
+    hil_url = 'http://127.0.0.1:5000'
+
     parser = argparse.ArgumentParser(description='Query current cloud for a given host')
     parser.add_argument('--host', dest='host', type=str, default=None, help='Specify the host to query')
     parser.add_argument('--cloud-only', dest='cloudonly', type=str, default=None, help='Limit full report to hosts only in this cloud')
@@ -106,6 +112,9 @@ def main(argv):
     parser.add_argument('--move-command', dest='movecommand', type=str, default=defaultmovecommand, help='External command to move a host')
     parser.add_argument('--dry-run', dest='dryrun', action='store_true', default=None, help='Dont update state when used with --move-hosts')
     parser.add_argument('--log-path', dest='logpath',type=str,default=None, help='Path to quads log file')
+    parser.add_argument('--hil-api-action', dest='hilapiaction', type=str, default=None, help='HIL API Action');
+    parser.add_argument('--hil-api-call', dest='hilapicall', type=str, default=None, help='HIL API Call');
+    parser.add_argument('--set-hardware-service', dest='hardwareservice', type=str, default=defaulthardwareservice, help='Set Hardware Serve');
 
     args = parser.parse_args()
 
@@ -170,9 +179,11 @@ def main(argv):
     #
     #   force -  Some operations require --force.  E.g. if you want to redefine
     #            a cloud environment.
-
-    quads = Quads(args.config, args.statedir, args.movecommand, args.datearg,
-                  args.syncstate, args.initialize, args.force)
+    #
+    #   hardwareservice - ????
+    #
+    quads = libquads.Quads(args.config, args.statedir, args.movecommand, args.datearg,
+                  args.syncstate, args.initialize, args.force, args.hardwareservice)
 
     # should these be mutually exclusive?
     if args.lshosts:
