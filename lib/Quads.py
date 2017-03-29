@@ -45,8 +45,6 @@ class Quads(object):
 	set_hardware_service(HilDriver())  #HIL driver addition
 
 
-        print hardwareservice
-
         if initialize:
             self.quads_init_data(force)
         try:
