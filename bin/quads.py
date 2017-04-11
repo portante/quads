@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/env python
 
 from datetime import datetime
 import calendar
@@ -13,7 +13,7 @@ from subprocess import call
 from subprocess import check_call
 
 sys.path.append(os.path.dirname(__file__) + "/../")
-from lib.hardware_services.hardware_service import set_hardware_service
+#from lib.hardware_services.hardware_service import set_hardware_service
 
 
 logger = logging.getLogger('quads')
@@ -57,7 +57,7 @@ def main(argv):
 
     sys.path.append(quads_config["install_dir"] + "/lib")
     sys.path.append(os.path.dirname(__file__) + "/../lib")
-    import libquads
+    import Quads
 
     defaultconfig = quads_config["data_dir"] + "/schedule.yaml"
     defaultstatedir = quads_config["data_dir"] + "/state"
