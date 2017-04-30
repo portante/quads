@@ -70,9 +70,6 @@ def main(argv):
     defaulthardwareservice = quads_config["hardware_service"]
     defaulthardwareserviceurl = quads_config["hardware_service_url"]
 
-    # added for EC528 HIL-QUADS integration project - not a good place for this variable - should be moved eventually
-    hil_url = 'http://127.0.0.1:5000'
-
     parser = argparse.ArgumentParser(description='Query current cloud for a given host')
     parser.add_argument('--host', dest='host', type=str, default=None, help='Specify the host to query')
     parser.add_argument('--cloud-only', dest='cloudonly', type=str, default=None, help='Limit full report to hosts only in this cloud')
